@@ -1,33 +1,33 @@
-#Angular JS Styleguide (em construÁ„o)
+#Angular JS Styleguide (em constru√ß√£o)
 _Angular JS Styleguide utilizado pela equipe da [Everest TI](http://www.everestti.com.br), ._ 
 
 <br>
 
-Uma abordagem para padronizaÁ„o do desenvolvimento de aplicaÁıes no Front end utilizando Angular JS.
-Esse guia foi baseado nas abordagens utilizadas por @toddmotto e @john_papa, bem como em vivÍncias do dia a dia.
+Uma abordagem para padroniza√ß√£o do desenvolvimento de aplica√ß√µes no Front end utilizando Angular JS.
+Esse guia foi baseado nas abordagens utilizadas por @toddmotto e @john_papa, bem como em viv√™ncias do dia a dia.
 
-##Õndice 
+##√çndice 
 
-1. [RecomendaÁıes gerais](#recomendacoes-gerais)
+1. [Recomenda√ß√µes gerais](#recomendacoes-gerais)
 2. [IIFE](#iife)
 2. [Modules](#modules)
 3. [Controllers](#controllers)
 4. [Services e factories](#services-e-factories)
 5. [Diretivas](#diretivas)
 6. [Filtros](#filtros)
-7. [Coment·rios](#comentarios)
+7. [Coment√°rios](#comentarios)
 8. [Testes](#testes)
 
 
-##RecomendaÁıes gerais
+##Recomenda√ß√µes gerais
 
 <br>
 
 * Nomenclatura
     
     - Arquivos em ```CamelCase```. Ex: ```UserController.js```
-    - FunÁıes que definem Controllers, Factories, Diretivas em ```CamelCase```.               Ex: ```UserController```
-    - Demais funÁıes e vari·veis em ```camelCase```. Ex: ```firstName```
+    - Fun√ß√µes que definem Controllers, Factories, Diretivas em ```CamelCase```.               Ex: ```UserController```
+    - Demais fun√ß√µes e vari√°veis em ```camelCase```. Ex: ```firstName```
 
 
    
@@ -41,11 +41,11 @@ Empacote componentes AngularJS em _Immediately Invoked Function Expression_ [(II
 
 Por que?:
 
-1. Evita que a declaraÁ„o de vari·veis e funÁıes existam em contexto global por mais tempo que o esperado. <br><br>
-2. Ajuda a evitar [colis„o de vari·veis](http://www.herongyang.com/JavaScript/Function-Variable-Collision-Example.html). <br><br>
+1. Evita que a declara√ß√£o de vari√°veis e fun√ß√µes existam em contexto global por mais tempo que o esperado. <br><br>
+2. Ajuda a evitar [colis√£o de vari√°veis](http://www.herongyang.com/JavaScript/Function-Variable-Collision-Example.html). <br><br>
 
 
-__ObservaÁ„o__: A sua utilizaÁ„o È ainda mais importante para quando fazemos a minificaÁ„o e concatenaÁ„o dos arquivos para serem servidos em produÁ„o, provendo um escopo de var·veis para cada arquivo.
+__Observa√ß√£o__: A sua utiliza√ß√£o √© ainda mais importante para quando fazemos a minifica√ß√£o e concatena√ß√£o dos arquivos para serem servidos em produ√ß√£o, provendo um escopo de var√°veis para cada arquivo.
 
 
 ```
@@ -55,7 +55,7 @@ angular
     .module('app')
     .factory('someFactory', someFactory);
     
-    // a funÁ„o someFactory e adicionada como uma vari·vel global
+    // a fun√ß√£o someFactory √© adicionada como uma vari√°vel global
     function someFactory() { }
 
 ```
@@ -64,7 +64,7 @@ angular
 /* 
     Recomendado 
     
-    Sem contexto global. O escopo agora est· em contexto local.
+    Sem contexto global. O escopo agora est√° em contexto local.
 */
 
 (function() {
@@ -79,20 +79,20 @@ angular
 })();
 
 ```
-[Voltar ao Ìndice](#indice)
+[Voltar ao √≠ndice](#indice)
 
 ##Modules
 
 <br>
 
-Declare os mÛdulos sem usar vari·veis, usando a sintaxe de ```getter``` e ```setter```
+Declare os m√≥dulos sem usar vari√°veis, usando a sintaxe de ```getter``` e ```setter```
 
-_Por que?_: Proporciona um cÛdigo mais legÌvel e evita a [colis„o de vari·veis](http://www.herongyang.com/JavaScript/Function-Variable-Collision-Example.html)
+_Por que?_: Proporciona um c√≥digo mais leg√≠vel e evita a [colis√£o de vari√°veis](http://www.herongyang.com/JavaScript/Function-Variable-Collision-Example.html)
 
 __Getter vs Setter__ <br>
 
-* Use ```angular.module('app',[]);``` para setar um mÛdulo.
-* Use ```angular.module('app');``` para obter um mÛdulo.
+* Use ```angular.module('app',[]);``` para setar um m√≥dulo.
+* Use ```angular.module('app');``` para obter um m√≥dulo.
   
 <br>
 
@@ -119,9 +119,9 @@ function SomeController() { }
 ```
 <br>
 
-__FunÁıes nomeadas vs funÁıes anÙnimas__: Use funÁıes nomeadas ao invÈs de funÁıes anÙnimas como _callback_
+__Fun√ß√µes nomeadas vs fun√ß√µes an√¥nimas__: Use fun√ß√µes nomeadas ao inv√©s de fun√ß√µes an√¥nimas como _callback_.
 
-_Por que?_: Isso proporciona um cÛdigo mais legÌvel, mais f·cil de _debugar_ e reduz a quantidade _callbacks_ aninhados.
+_Por que?_: Isso proporciona um c√≥digo mais leg√≠vel, mais f√°cil de _debugar_ e reduz a quantidade de _callbacks_ aninhados.
 
 ```
 /* Evitar */
@@ -149,15 +149,15 @@ angular
 function SomeFactory() { }
 ```
 
-[Voltar ao Ìndice](#indice)
+[Voltar ao √≠ndice](#indice)
 
 ##Controllers
 
 <br>
 
-__Sint·xe ControllerAs na View__ :  Use a sint·xe de [ControllerAs](http://toddmotto.com/digging-into-angulars-controller-as-syntax/) ao invÈs da sint·xe cl·ssica com ```$scope```
+__Sintaxe ControllerAs na View__ :  Use a sint√°xe de [ControllerAs](http://toddmotto.com/digging-into-angulars-controller-as-syntax/) ao inv√©s da sintaxe cl√°ssica com ```$scope```
 
-_Por que?:_ Promove a utilizaÁ„o do _binding_ na _view_ atravÈs de um _alias_, tornando mais contextual e f·cil de ler.
+_Por que?:_ Promove a utiliza√ß√£o do _binding_ na _view_ atrav√©s de um _alias_, tornando mais contextual e f√°cil de ler.
 
 ```
 <!-- Evitar -->
@@ -173,7 +173,7 @@ _Por que?:_ Promove a utilizaÁ„o do _binding_ na _view_ atravÈs de um _alias_, t
 
 <br>
 
-__Sint·xe ControllerAs no controller__ : O _controllerAs_ permite a utilizaÁ„o do ```this``` nos _controllers_ no lugar da utilizaÁ„o cl·ssica do ```$scope```.
+__Sintaxe ControllerAs no controller__ : O _controllerAs_ permite a utiliza√ß√£o do ```this``` nos _controllers_ no lugar da utiliza√ß√£o "cl√°ssica" do ```$scope```.
 
 ```
 // Evitar
@@ -194,21 +194,20 @@ function UserController () {
 ```
 <br> 
 
-SÛ utilize o ```$scope``` quando necess·rio. Por exmplo, se houver a necessidade de utilizar algo que n„o seja ```data bindindg``` (```$watch```, ```$on```, ```$broadcast```). Mesmo assim, È importante evitar ao m·ximo essa pr·tica. Sempre que possÌvel deve ser delegado a uma ```factory``` ou ```service```.
+S√≥ utilize o ```$scope``` quando necess√°rio. Por exmplo, se houver a necessidade de utilizar algo que n√£o seja ```data bindindg``` (```$watch```, ```$on```, ```$broadcast```). 
 
-_Por que?_: Explicar!
+_Por que?_: (TODO: Explicar)
 
 <br>
 
-__ControllerAs com a vari·vel 'vm' (_ViewModel_)__: Use uma vari·vel de captura para o ```this```.
+__ControllerAs com a vari√°vel 'vm' (_ViewModel_)__: Use uma vari√°vel de captura para o ```this```.
 
 _Por que?_: 
 
-1.   O [```this```](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this) È uma palavra-chave contextual e quando usada dentro de uma funÁ„o, dentro de um _controller_ o seu contexto pode mudar. Capturar o contexto do ```this``` dentro de uma vari·vel evita que isso ocorra. <br><br> 
-2.  O ```$scope``` funciona como uma "cola" entre o ```model``` e a ```view```([_ViewModel_](http://en.wikipedia.org/wiki/Model_View_ViewModel)), portando, a atribuiÁ„o do ```this``` na vari·vel ```vm```, alÈm de ser mais curta, torna o cÛdigo mais legÌvel, tornando tudo que È ```"bindable"``` contextual. <br><br> 
-3.  Na maioria das vezes È possÌvel evitar uma injeÁ„o de dependÍncia (```$scope```) desnecess·ria. <br><br> 
-4.  O uso demasiado do ```$scope``` deixa o cÛdigo "sujo", atrapalhando a legibilidade. <br><br> 
-
+1.   O [```this```](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this) √© uma palavra-chave contextual e quando usada dentro de uma fun√ß√£o, dentro de um _controller_ o seu contexto pode mudar. Capturar o contexto do ```this``` dentro de uma vari√°vel evita que isso ocorra. <br><br> 
+2.  O ```$scope``` funciona como uma "cola" entre o ```model``` e a ```view```([_ViewModel_](http://en.wikipedia.org/wiki/Model_View_ViewModel)), portando, a atribui√ß√£o do ```this``` na vari√°vel ```vm```, al√©m de ser mais curta, deixa o c√≥digo mais leg√≠vel, tornando tudo que √© ```"bindable"``` contextual. <br><br> 
+3.  Na maioria das vezes √© poss√≠vel evitar uma inje√ß√£o de depend√™ncia (```$scope```) desnecess√°ria. <br><br> 
+4.  O uso demasiado do ```$scope``` deixa o c√≥digo "sujo", atrapalhando a legibilidade. <br><br> 
 
 ```
 /* Evitar */
@@ -229,15 +228,15 @@ function Customer() {
 
 <br>
 
-__N„o coloque lÛgica de negÛcio (regras de negÛcio) no _controller_ __: Delege a lÛgica de negÛcio para ```services``` ou ```factories```/
+__N√£o coloque l√≥gica de neg√≥cio (regras de neg√≥cio) no _controller_ __: Delege a l√≥gica de neg√≥cio para ```services``` ou ```factories```/
 
 <br>
 
 _Por que?_: 
 
-1. A lÛgica pode ser usada por mais de um _controller_ <br><br>
-2. A lÛgica pode ser facilmente isolada em um teste unit·rio enquanto a chamada no _controller_ pode ser facilmente _mockada_. <br><br>
-3. Remove dependÍncias e oculta detalhes de implementaÁ„o do controller. <br><br>
+1. A l√≥gica pode ser usada por mais de um _controller_ <br><br>
+2. A l√≥gica pode ser facilmente isolada em um teste unit√°rio enquanto a chamada no _controller_ pode ser facilmente _mockada_. <br><br>
+3. Remove depend√™ncias e oculta detalhes de implementa√ß√£o do controller. <br><br>
 
 
 ```
@@ -266,12 +265,12 @@ function User(cpfCheckService) {
     };
 }
 ```
-[Voltar ao Ìndice](#indice)
+[Voltar ao √≠ndice](#indice)
 
 
 ##Services
 
-Utilize ```services``` para funÁıes utilit·rias compartilhadas.
+Utilize ```services``` para fun√ß√µes utilit√°rias compartilhadas.
 
 ```
   function ArrayUtilService () {
@@ -285,18 +284,18 @@ Utilize ```services``` para funÁıes utilit·rias compartilhadas.
 ```
 
 
-_Por que?__: Explicar! (TODO)
+_Por que?__: (TODO: Explicar!)
 
 
-[Voltar ao Ìndice](#indice)
+[Voltar ao √≠ndice](#indice)
 
 #Factories
 
-Utilize ```factories``` para a lÛgica de negÛcios da aplicaÁ„o.
+Utilize ```factories``` para a l√≥gica de neg√≥cios da aplica√ß√£o.
 
-__"API p˙blica" no topo__: Exponha todas as suas funÁıes p˙blicas no topo, usando uma tÈcnica derivada do Revealing Module Pattern.
+__"API p√∫blica" no topo__: Exponha todas as suas fun√ß√µes p√∫blicas no topo, usando uma t√©cnica derivada do Revealing Module Pattern.
 
-_Por que?_: Colocar as funÁıes acessÌveis publicamente no topo torna mais f·cil a identificaÁ„o podem e devem ser consumidos e testados.
+_Por que?_: Colocar as fun√ß√µes acess√≠veis publicamente no topo torna mais f√°cil a identifica√ß√£o do que pode e deve ser consumido e testado.
 
 ```
 /* Evitar  */
@@ -332,25 +331,25 @@ function SomeFactory() {
 }
 ```
 
-[Voltar ao Ìndice](#indice)
+[Voltar ao √≠ndice](#indice)
 
 ##Diretivas
 
 Em breve...
 
-[Voltar ao Ìndice](#indice)
+[Voltar ao √≠ndice](#indice)
 
 ##Filters
 
 Em breve...
 
-[Voltar ao Ìndice](#indice)
+[Voltar ao √≠ndice](#indice)
 
-##Coment·rios
+##Coment√°rios
 
-Use a sint·xe do [jsDoc](http://jsdoc.org) para comentar o cÛdigo. 
+Use a sint√°xe do [jsDoc](http://jsdoc.org) para comentar o c√≥digo. 
 
-_Por que?_: Dessa forma podemos gerar uma documentaÁ„o para nosso cÛdigo, ao invÈs de escrevÍ-la do zero.
+_Por que?_: Dessa forma podemos gerar uma documenta√ß√£o para nosso c√≥digo, ao inv√©s de escrev√™-la do zero.
 
 ```
 /**
@@ -376,13 +375,13 @@ angular
   .service('SomeService', SomeService);  
 ```
 
-[Voltar ao Ìndice](#indice)
+[Voltar ao √≠ndice](#indice)
 
 ##Testes
 
-[Voltar ao Ìndice](#indice)
+[Voltar ao √≠ndice](#indice)
 
-##LicenÁa de uso
+##Licen√ßa de uso
 
 (The MIT License)
 
