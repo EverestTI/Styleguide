@@ -2,6 +2,8 @@ Css Styleguide
 ==============
 Bem-vindo ao Everestti CSS Styleguide.
 
+> *Em desenvolvimento*
+
 ## Índice
 
 1. [Princípios](#princípios)
@@ -98,7 +100,7 @@ Deixe uma linha em branco entre este título e a próxima linha de código (seja
 ```
 
 
-## Multi-line CSS
+## Múltiplas linhas
 CSS deve ser escrito em várias linhas, exceto em circunstâncias muito específicas. Há um certo número de benefícios para o presente: A menor possibilidade de conflitos de mesclagem, porque existe cada pedaço de funcionalidade em sua própria linha. Exceções a essa regra devem ser bastante evidente, como conjuntos de regras semelhantes que apenas carregam uma declaração de cada, por exemplo:
 ```
 .icon {
@@ -195,13 +197,13 @@ Ao escrever vários valores em um atributo de classe, separe-os com dois espaço
 ```
 Quando várias classes estão relacionados uns aos outros, considere agrupando-os em colchetes ([...]), assim:
 ```
-<div class="[ box  box--highlight ]  [ bio  bio--long ]">
+<div class="[ box  box__highlight ]  [ bio  bio__long ]">
 ```
 Esta não é uma recomendação firme, e é algo que eu ainda estou me experimentação, mas não carregam uma série de benefícios. Leia mais em [Grouping related classes in your markup](http://csswizardry.com/2014/05/grouping-related-classes-in-your-markup/).
 
 Tal como acontece com os nossos conjuntos de regras, é possível a utilização de espaços em branco significativo em seu HTML. Você pode denotar breaks temáticos em conteúdo, com cinco (5) linhas vazias, por exemplo:
 ```
-<header class="page-head">
+<header class="page_head">
     ...
 </header>
 
@@ -209,7 +211,7 @@ Tal como acontece com os nossos conjuntos de regras, é possível a utilização
 
 
 
-<main class="page-content">
+<main class="page_content">
     ...
 </main>
 
@@ -217,30 +219,30 @@ Tal como acontece com os nossos conjuntos de regras, é possível a utilização
 
 
 
-<footer class="page-foot">
+<footer class="page_foot">
     ...
 </footer>
 ```
 Trechos separados e independentes, mas vagamente relacionadas de marcação com uma única linha vazia, por exemplo:
 ```
-<ul class="primary-nav">
+<ul class="primary_nav">
 
     <li class="primary-nav__item">
-        <a href="/" class="primary-nav__link">Home</a>
+        <a href="/" class="primary_nav--link">Home</a>
     </li>
 
-    <li class="primary-nav__item  primary-nav__trigger">
-        <a href="/about" class="primary-nav__link">About</a>
+    <li class="primary_nav--item  primary_nav--trigger">
+        <a href="/about" class="primary_nav--link">About</a>
 
-        <ul class="primary-nav__sub-nav">
+        <ul class="primary_nav--sub_nav">
             <li><a href="/about/products">Products</a></li>
             <li><a href="/about/company">Company</a></li>
         </ul>
 
     </li>
 
-    <li class="primary-nav__item">
-        <a href="/contact" class="primary-nav__link">Contact</a>
+    <li class="primary_nav--item">
+        <a href="/contact" class="primary_nav--link">Contact</a>
     </li>
 
 </ul>
