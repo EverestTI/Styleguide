@@ -17,6 +17,7 @@ Bem-vindo ao Everestti CSS Styleguide.
 - Separar a estrutura do skin (cores, fontes, bordas, etc.)
 - Separe os containers do conteúdo
 
+
 ## Nomeando classes
 ##### // CSS
 ( `_` ) Hífen: Separa palavras compostas<br>
@@ -39,6 +40,7 @@ Em elementos que forem receber alguma manipulação via javascript, não vincula
 <input type="submit" class="btn js-btn" value="Submit" />
 ```
 
+
 ## Identação
 Usar dois (2) "espaços" de identação, por exemplo:
 ```
@@ -60,6 +62,7 @@ Nos casos de setar os filhos de `.foo`, indentar em cascata, sempre com 2 espaç
       padding: 5px;
     }
 ```
+
 
 ## Comentários
 ### Titulando
@@ -93,6 +96,7 @@ Deixe uma linha em branco entre este título e a próxima linha de código (seja
  * broken across several lines.
  */
 ```
+
 
 ## Multi-line CSS
 CSS deve ser escrito em várias linhas, exceto em circunstâncias muito específicas. Há um certo número de benefícios para o presente: A menor possibilidade de conflitos de mesclagem, porque existe cada pedaço de funcionalidade em sua própria linha. Exceções a essa regra devem ser bastante evidente, como conjuntos de regras semelhantes que apenas carregam uma declaração de cada, por exemplo:
@@ -130,6 +134,7 @@ Strings identicas devem ser alinhadas entre si, por exemplo:
 }
 ```
 
+
 ## Espaços em branco
 - Uma (1) linha em branco entre os conjuntos de regras relacionadas.
 - Duas (2) linhas vazias entre os conjuntos de regras vagamente relacionadas.
@@ -162,12 +167,14 @@ Strings identicas devem ser alinhadas entre si, por exemplo:
   .bar--foo {}
 ```
 
+
 ## Especificidade (classes vs. ids)
 Elementos que ocorrem exatamente uma vez dentro de uma página devem usar IDs, caso contrário, use classes. Quando em dúvida, use um nome de classe.<br>
 > Somente atribuir um ID para um elemento inline se for necessário referenciá-lo em um javascript ou jQuery.
 
 - **Bons** candidatos para ids: cabeçalho, rodapé, popups, modais.
 - **Maus** candidatos para ids: navegação, listas de itens, botões.
+
 
 ## HTML
 Dado por HTML e CSS serem intrinsecamente interligados, seria negligência da minha parte não cobrir algumas orientações de sintaxe e formatação para marcação.
