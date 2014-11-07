@@ -169,6 +169,78 @@ Elementos que ocorrem exatamente uma vez dentro de uma página devem usar IDs, c
 - **Bons** candidatos para ids: cabeçalho, rodapé, popups, modais.
 - **Maus** candidatos para ids: navegação, listas de itens, botões.
 
+## HTML
+Dado por HTML e CSS serem intrinsecamente interligados, seria negligência da minha parte não cobrir algumas orientações de sintaxe e formatação para marcação.
+
+Citar sempre atributos, mesmo que iria trabalhar sem. Isto reduz a possibilidade de acidentes, e é de um formato mais familiar para a maioria dos promotores. Por tudo isso iria funcionar (e é válida):
+```
+<div class=box>
+```
+…esse formato é preferido:
+```
+<div class="box">
+```
+As aspas não são necessárias aqui, porém melhor incluí-las.
+
+Ao escrever vários valores em um atributo de classe, separe-os com dois espaços, assim:
+```
+<div class="foo  bar">
+```
+Quando várias classes estão relacionados uns aos outros, considere agrupando-os em colchetes ([...]), assim:
+```
+<div class="[ box  box--highlight ]  [ bio  bio--long ]">
+```
+Esta não é uma recomendação firme, e é algo que eu ainda estou me experimentação, mas não carregam uma série de benefícios. Leia mais em [Grouping related classes in your markup](http://csswizardry.com/2014/05/grouping-related-classes-in-your-markup/).
+
+Tal como acontece com os nossos conjuntos de regras, é possível a utilização de espaços em branco significativo em seu HTML. Você pode denotar breaks temáticos em conteúdo, com cinco (5) linhas vazias, por exemplo:
+```
+<header class="page-head">
+    ...
+</header>
+
+
+
+
+
+<main class="page-content">
+    ...
+</main>
+
+
+
+
+
+<footer class="page-foot">
+    ...
+</footer>
+```
+Trechos separados e independentes, mas vagamente relacionadas de marcação com uma única linha vazia, por exemplo:
+```
+<ul class="primary-nav">
+
+    <li class="primary-nav__item">
+        <a href="/" class="primary-nav__link">Home</a>
+    </li>
+
+    <li class="primary-nav__item  primary-nav__trigger">
+        <a href="/about" class="primary-nav__link">About</a>
+
+        <ul class="primary-nav__sub-nav">
+            <li><a href="/about/products">Products</a></li>
+            <li><a href="/about/company">Company</a></li>
+        </ul>
+
+    </li>
+
+    <li class="primary-nav__item">
+        <a href="/contact" class="primary-nav__link">Contact</a>
+    </li>
+
+</ul>
+```
+Isso permite aos desenvolvedores detectar partes separadas do DOM de relance, e também permite que certos editores de texto como o Vim, por exemplo, manipular blocos delimitados com quebras de linhas da marcação.
+
+
 ## Recomendações gerais
 
 > EVITAR AO MÁXIMO o uso de ID's, dando preferência à utilização de classes para fim de componentização e reutilização.
